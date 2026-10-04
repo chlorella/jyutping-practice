@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 test('TypeDuck target, blank answer, wrong answer, hint, correct text, reload persistence', async ({page}) => {
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.locator('#target')).toHaveText('夏天');
   await expect(page.locator('#solution')).toBeHidden();
   await page.locator('#check').click();
@@ -20,7 +20,7 @@ test('TypeDuck target, blank answer, wrong answer, hint, correct text, reload pe
 });
 
 test('spelling, tone toggle and per-mode records remain distinct', async ({page}) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.locator('#mode').selectOption('spelling');
   await page.locator('#answer').fill('haa tin');
   await page.locator('#check').click();
@@ -38,7 +38,7 @@ test('spelling, tone toggle and per-mode records remain distinct', async ({page}
   expect(data.records.typing).toEqual({});
 });
 test('hints do not advance mastery and IME composition does not grade', async ({page}) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.locator('#hint').click();
   await expect(page.locator('#solution')).toContainText('h + …');
   await page.locator('#answer').fill('夏天');
@@ -56,7 +56,7 @@ test('export/import round trip, bad import preservation, no third-party requests
   const errors=[]; const external=[];
   page.on('pageerror',e=>errors.push(e.message));
   page.on('request',r=>{if(!r.url().startsWith(new URL(page.context()._options.baseURL).origin))external.push(r.url());});
-  await page.goto('/');
+  await page.goto('./');
   await page.locator('#answer').fill('夏天'); await page.locator('#check').click();
   await page.getByText('進度與備份',{exact:true}).click();
   const downloadPromise=page.waitForEvent('download'); await page.locator('#export').click();
@@ -74,7 +74,7 @@ test('export/import round trip, bad import preservation, no third-party requests
   expect(errors).toEqual([]);expect(external).toEqual([]);
 });
 test('narrow and landscape layouts fit viewport; lesson video has timestamp', async ({page}) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.locator('#lesson').selectOption('eo');
   await expect(page.locator('#video')).toHaveAttribute('href',/t=2356s$/);
   for(const size of [{width:320,height:640},{width:844,height:390}]){
