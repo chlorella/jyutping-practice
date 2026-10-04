@@ -1,0 +1,468 @@
+{
+  "voice": "zh-HK-HiuGaaiNeural",
+  "engine": "Microsoft Edge TTS via edge-tts 7.2.8",
+  "synthetic": true,
+  "review": "Container, duration and browser playback checked; not human phonetic review.",
+  "clips": {
+    "structure-1": {
+      "text": "夏天",
+      "file": "structure-1.mp3"
+    },
+    "structure-2": {
+      "text": "今天",
+      "file": "structure-2.mp3"
+    },
+    "structure-3": {
+      "text": "香港",
+      "file": "structure-3.mp3"
+    },
+    "structure-4": {
+      "text": "美麗",
+      "file": "structure-4.mp3"
+    },
+    "structure-5": {
+      "text": "學校",
+      "file": "structure-5.mp3"
+    },
+    "structure-6": {
+      "text": "亞洲",
+      "file": "structure-6.mp3"
+    },
+    "structure-7": {
+      "text": "中午",
+      "file": "structure-7.mp3"
+    },
+    "vowels-1": {
+      "text": "家",
+      "file": "vowels-1.mp3"
+    },
+    "vowels-2": {
+      "text": "車",
+      "file": "vowels-2.mp3"
+    },
+    "vowels-3": {
+      "text": "衣",
+      "file": "vowels-3.mp3"
+    },
+    "vowels-4": {
+      "text": "哥",
+      "file": "vowels-4.mp3"
+    },
+    "vowels-5": {
+      "text": "褲",
+      "file": "vowels-5.mp3"
+    },
+    "vowels-6": {
+      "text": "書",
+      "file": "vowels-6.mp3"
+    },
+    "vowels-7": {
+      "text": "魚",
+      "file": "vowels-7.mp3"
+    },
+    "vowels-8": {
+      "text": "靴",
+      "file": "vowels-8.mp3"
+    },
+    "vowels-9": {
+      "text": "短",
+      "file": "vowels-9.mp3"
+    },
+    "vowels-10": {
+      "text": "血",
+      "file": "vowels-10.mp3"
+    },
+    "aspiration-1": {
+      "text": "爸",
+      "file": "aspiration-1.mp3"
+    },
+    "aspiration-2": {
+      "text": "怕",
+      "file": "aspiration-2.mp3"
+    },
+    "aspiration-3": {
+      "text": "百",
+      "file": "aspiration-3.mp3"
+    },
+    "aspiration-4": {
+      "text": "拍",
+      "file": "aspiration-4.mp3"
+    },
+    "aspiration-5": {
+      "text": "島",
+      "file": "aspiration-5.mp3"
+    },
+    "aspiration-6": {
+      "text": "土",
+      "file": "aspiration-6.mp3"
+    },
+    "aspiration-7": {
+      "text": "古",
+      "file": "aspiration-7.mp3"
+    },
+    "aspiration-8": {
+      "text": "卡",
+      "file": "aspiration-8.mp3"
+    },
+    "aspiration-9": {
+      "text": "波",
+      "file": "aspiration-9.mp3"
+    },
+    "aspiration-10": {
+      "text": "婆",
+      "file": "aspiration-10.mp3"
+    },
+    "zcs-1": {
+      "text": "姐",
+      "file": "zcs-1.mp3"
+    },
+    "zcs-2": {
+      "text": "紙",
+      "file": "zcs-2.mp3"
+    },
+    "zcs-3": {
+      "text": "次",
+      "file": "zcs-3.mp3"
+    },
+    "zcs-4": {
+      "text": "是",
+      "file": "zcs-4.mp3"
+    },
+    "zcs-5": {
+      "text": "豬",
+      "file": "zcs-5.mp3"
+    },
+    "zcs-6": {
+      "text": "廚",
+      "file": "zcs-6.mp3"
+    },
+    "zcs-7": {
+      "text": "沙",
+      "file": "zcs-7.mp3"
+    },
+    "zcs-8": {
+      "text": "詩",
+      "file": "zcs-8.mp3"
+    },
+    "diphthongs-1": {
+      "text": "鞋",
+      "file": "diphthongs-1.mp3"
+    },
+    "diphthongs-2": {
+      "text": "菜",
+      "file": "diphthongs-2.mp3"
+    },
+    "diphthongs-3": {
+      "text": "杯",
+      "file": "diphthongs-3.mp3"
+    },
+    "diphthongs-4": {
+      "text": "飛機",
+      "file": "diphthongs-4.mp3"
+    },
+    "diphthongs-5": {
+      "text": "包",
+      "file": "diphthongs-5.mp3"
+    },
+    "diphthongs-6": {
+      "text": "笑",
+      "file": "diphthongs-6.mp3"
+    },
+    "diphthongs-7": {
+      "text": "刀",
+      "file": "diphthongs-7.mp3"
+    },
+    "diphthongs-8": {
+      "text": "左",
+      "file": "diphthongs-8.mp3"
+    },
+    "diphthongs-9": {
+      "text": "早晨",
+      "file": "diphthongs-9.mp3"
+    },
+    "diphthongs-10": {
+      "text": "再次",
+      "file": "diphthongs-10.mp3"
+    },
+    "diphthongs-11": {
+      "text": "好味道",
+      "file": "diphthongs-11.mp3"
+    },
+    "initials-1": {
+      "text": "媽",
+      "file": "initials-1.mp3"
+    },
+    "initials-2": {
+      "text": "你",
+      "file": "initials-2.mp3"
+    },
+    "initials-3": {
+      "text": "牙",
+      "file": "initials-3.mp3"
+    },
+    "initials-4": {
+      "text": "力",
+      "file": "initials-4.mp3"
+    },
+    "initials-5": {
+      "text": "人",
+      "file": "initials-5.mp3"
+    },
+    "initials-6": {
+      "text": "話",
+      "file": "initials-6.mp3"
+    },
+    "initials-7": {
+      "text": "光",
+      "file": "initials-7.mp3"
+    },
+    "initials-8": {
+      "text": "裙",
+      "file": "initials-8.mp3"
+    },
+    "initials-9": {
+      "text": "花",
+      "file": "initials-9.mp3"
+    },
+    "initials-10": {
+      "text": "好",
+      "file": "initials-10.mp3"
+    },
+    "nasals-1": {
+      "text": "三",
+      "file": "nasals-1.mp3"
+    },
+    "nasals-2": {
+      "text": "甜",
+      "file": "nasals-2.mp3"
+    },
+    "nasals-3": {
+      "text": "山",
+      "file": "nasals-3.mp3"
+    },
+    "nasals-4": {
+      "text": "天",
+      "file": "nasals-4.mp3"
+    },
+    "nasals-5": {
+      "text": "碗",
+      "file": "nasals-5.mp3"
+    },
+    "nasals-6": {
+      "text": "圓",
+      "file": "nasals-6.mp3"
+    },
+    "nasals-7": {
+      "text": "香",
+      "file": "nasals-7.mp3"
+    },
+    "nasals-8": {
+      "text": "糖",
+      "file": "nasals-8.mp3"
+    },
+    "nasals-9": {
+      "text": "見",
+      "file": "nasals-9.mp3"
+    },
+    "nasals-10": {
+      "text": "面",
+      "file": "nasals-10.mp3"
+    },
+    "stops-1": {
+      "text": "鴨",
+      "file": "stops-1.mp3"
+    },
+    "stops-2": {
+      "text": "葉",
+      "file": "stops-2.mp3"
+    },
+    "stops-3": {
+      "text": "八",
+      "file": "stops-3.mp3"
+    },
+    "stops-4": {
+      "text": "熱",
+      "file": "stops-4.mp3"
+    },
+    "stops-5": {
+      "text": "沒",
+      "file": "stops-5.mp3"
+    },
+    "stops-6": {
+      "text": "雪",
+      "file": "stops-6.mp3"
+    },
+    "stops-7": {
+      "text": "學",
+      "file": "stops-7.mp3"
+    },
+    "stops-8": {
+      "text": "桌",
+      "file": "stops-8.mp3"
+    },
+    "stops-9": {
+      "text": "搭",
+      "file": "stops-9.mp3"
+    },
+    "stops-10": {
+      "text": "達",
+      "file": "stops-10.mp3"
+    },
+    "shorta-1": {
+      "text": "心",
+      "file": "shorta-1.mp3"
+    },
+    "shorta-2": {
+      "text": "新",
+      "file": "shorta-2.mp3"
+    },
+    "shorta-3": {
+      "text": "北",
+      "file": "shorta-3.mp3"
+    },
+    "shorta-4": {
+      "text": "雞",
+      "file": "shorta-4.mp3"
+    },
+    "shorta-5": {
+      "text": "街",
+      "file": "shorta-5.mp3"
+    },
+    "shorta-6": {
+      "text": "夠",
+      "file": "shorta-6.mp3"
+    },
+    "shorta-7": {
+      "text": "找",
+      "file": "shorta-7.mp3"
+    },
+    "shorta-8": {
+      "text": "走",
+      "file": "shorta-8.mp3"
+    },
+    "shorta-9": {
+      "text": "今",
+      "file": "shorta-9.mp3"
+    },
+    "shorta-10": {
+      "text": "監",
+      "file": "shorta-10.mp3"
+    },
+    "eo-1": {
+      "text": "水",
+      "file": "eo-1.mp3"
+    },
+    "eo-2": {
+      "text": "春",
+      "file": "eo-2.mp3"
+    },
+    "eo-3": {
+      "text": "出",
+      "file": "eo-3.mp3"
+    },
+    "eo-4": {
+      "text": "女",
+      "file": "eo-4.mp3"
+    },
+    "eo-5": {
+      "text": "去",
+      "file": "eo-5.mp3"
+    },
+    "eo-6": {
+      "text": "追",
+      "file": "eo-6.mp3"
+    },
+    "eo-7": {
+      "text": "對",
+      "file": "eo-7.mp3"
+    },
+    "eo-8": {
+      "text": "灰",
+      "file": "eo-8.mp3"
+    },
+    "eo-9": {
+      "text": "妹",
+      "file": "eo-9.mp3"
+    },
+    "eo-10": {
+      "text": "律",
+      "file": "eo-10.mp3"
+    },
+    "shortiu-1": {
+      "text": "食",
+      "file": "shortiu-1.mp3"
+    },
+    "shortiu-2": {
+      "text": "石",
+      "file": "shortiu-2.mp3"
+    },
+    "shortiu-3": {
+      "text": "丙",
+      "file": "shortiu-3.mp3"
+    },
+    "shortiu-4": {
+      "text": "餅",
+      "file": "shortiu-4.mp3"
+    },
+    "shortiu-5": {
+      "text": "六",
+      "file": "shortiu-5.mp3"
+    },
+    "shortiu-6": {
+      "text": "樂",
+      "file": "shortiu-6.mp3"
+    },
+    "shortiu-7": {
+      "text": "工",
+      "file": "shortiu-7.mp3"
+    },
+    "shortiu-8": {
+      "text": "剛",
+      "file": "shortiu-8.mp3"
+    },
+    "shortiu-9": {
+      "text": "同",
+      "file": "shortiu-9.mp3"
+    },
+    "shortiu-10": {
+      "text": "即食",
+      "file": "shortiu-10.mp3"
+    },
+    "shortiu-11": {
+      "text": "星形",
+      "file": "shortiu-11.mp3"
+    },
+    "shortiu-12": {
+      "text": "木屋",
+      "file": "shortiu-12.mp3"
+    },
+    "shortiu-13": {
+      "text": "總共",
+      "file": "shortiu-13.mp3"
+    },
+    "application-1": {
+      "text": "今天去香港",
+      "file": "application-1.mp3"
+    },
+    "application-2": {
+      "text": "我去學校",
+      "file": "application-2.mp3"
+    },
+    "application-3": {
+      "text": "你去香港",
+      "file": "application-3.mp3"
+    },
+    "application-4": {
+      "text": "香港好美麗",
+      "file": "application-4.mp3"
+    },
+    "application-5": {
+      "text": "中午好熱",
+      "file": "application-5.mp3"
+    },
+    "application-6": {
+      "text": "今天好熱",
+      "file": "application-6.mp3"
+    }
+  }
+}

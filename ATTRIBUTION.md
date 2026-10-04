@@ -28,6 +28,13 @@ https://creativecommons.org/licenses/by/4.0/
 
 Changes: selected and arranged into a small practice deck, paired with course themes and newly composed application sentences; the complete original dictionary is not included. Its upstream license text is supplied as `LICENSE-DATA.txt`.
 
+## Synthetic read-aloud audio
+
+The `audio/` clips are generated from the card text using Microsoft's Hong Kong Cantonese `zh-HK-HiuGaaiNeural` voice via `edge-tts` 7.2.8. No voice cloning, teacher recordings, or source-video audio is included. `audio/manifest.json` records the voice and text-to-file mapping. Audio has been checked for container validity, nonzero duration and browser playback, but not human-reviewed for every target syllable. Polyphonic characters may be read differently from the exercise's selected pronunciation. These synthesized audio assets are separate from the upstream dictionary-data license and the application-code license; no MIT/CC relicensing of third-party voice technology is implied.
+
+Voice reference: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts
+Generation tool: https://github.com/rany2/edge-tts
+
 ## Application code
 
 Original application code is MIT licensed; see `LICENSE`. Source data retains its separate license above.

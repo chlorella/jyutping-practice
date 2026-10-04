@@ -32,6 +32,19 @@
     if (!settings || !['typing','spelling'].includes(settings.mode) || typeof settings.tones !== 'boolean' || !['all', ...lessons.map(l => l.id)].includes(settings.lesson)) fail();
     const result = { version: 1, settings: { mode: settings.mode, lesson: settings.lesson, tones: settings.tones }, records: { typing: {}, spelling: {}, tones: {} } };
     const ids = new Set(cards.map(c => c.id));
+    if (data.custom !== undefined) {
+      if (!Array.isArray(data.custom) || data.custom.length > 1000) fail();
+      result.custom = [];
+      for (const card of data.custom) {
+        if (!card || !/^custom-[a-zA-Z0-9-]{1,80}$/.test(card.id) || ids.has(card.id) || card.lesson !== 'custom') fail();
+        if (typeof card.text !== 'string' || !/^[\p{Script=Han}]{1,24}$/u.test(card.text) || typeof card.note !== 'string' || card.note.length > 500) fail();
+        if (!Array.isArray(card.readings) || card.readings.length !== 1 || typeof card.readings[0] !== 'string' || card.readings[0].length > 300) fail();
+        const syllables = card.readings[0].split(' ');
+        if (syllables.length !== [...card.text].length || !syllables.every(s => /^[a-z]+[1-6]$/.test(s) && split(s))) fail();
+        result.custom.push({id:card.id, text:card.text, readings:[card.readings[0]], lesson:'custom', note:card.note});
+        ids.add(card.id);
+      }
+    }
     for (const mode of Object.keys(data.records)) if (!['typing','spelling','tones'].includes(mode)) fail();
     for (const mode of ['typing','spelling','tones']) {
       const records = data.records[mode] || {};

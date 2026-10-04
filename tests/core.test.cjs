@@ -62,6 +62,19 @@ test('backup validation accepts known progress and rejects malformed or hostile 
   assert.throws(() => C.validateBackup(JSON.parse('{"version":1,"records":{"typing":{"__proto__":{}}}}'),cards,lessons));
 });
 
+test('custom flashcards survive backups and reject invalid spellings, ids and counts', () => {
+  const data={version:1,settings:{mode:'typing',lesson:'custom',tones:false},custom:[{id:'custom-test1',text:'地衣',readings:['dei6 ji1'],lesson:'custom',note:'自己嘅字卡'}],records:{typing:{},spelling:{},tones:{}}};
+  const lessons=[{id:'custom'}];
+  assert.deepEqual(C.validateBackup(data,[],lessons).custom,data.custom);
+  const saved=JSON.parse(JSON.stringify(data));
+  saved.records.typing['custom-test1']={attempts:1,correct:0,mistakes:1,streak:0,due:60000,last:0};
+  assert.ok(C.validateBackup(saved,[],lessons).records.typing['custom-test1']);
+  for(const change of [{id:'__proto__'},{readings:['dei6']},{readings:['dei7 ji1']},{text:'<script>'}]){
+    const invalid=JSON.parse(JSON.stringify(data));Object.assign(invalid.custom[0],change);
+    assert.throws(()=>C.validateBackup(invalid,[],lessons));
+  }
+});
+
 test('deck has stable unique ids and valid readings for every target character', () => {
   const p = path.join(__dirname, '../deck.js');
   assert.ok(fs.existsSync(p), 'Missing verified learning deck');
