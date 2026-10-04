@@ -37,6 +37,14 @@ Open **自訂 Flashcards**, enter a Chinese word (1–24 Han characters), one Jy
 
 Custom Jyutping is user-supplied: syntax checks are not dictionary verification. Custom-card audio uses only a device-provided **local** Cantonese voice (`zh-HK`/`yue`); it never falls back to Mandarin or sends card text to a cloud TTS service. Missing local voices produce an explanatory message; custom audio availability is device-dependent. Built-in lesson audio remains pre-generated MP3.
 
+## Separate initial / final sounds
+
+Open **聲母／韻母分開聽** near the top, then tap a Jyutping symbol. The library maps 19 initial demonstrations and 60 final / nucleus / syllabic-nasal demonstrations from Open Cantonese's *Cantonese Life 1* Jyutping chart. `eo` is explicitly labelled as a nucleus in `eoi/eon/eot`, not an arbitrary standalone final. Zero initial is explained rather than given a fake audio clip. Initial demonstrations may include a supporting vowel; these are phonetic demonstrations, not English letter names or the video's teacher recordings.
+
+Audio loads **directly from opencantonese.org only after a tap**; no personal flashcards, answers or progress are sent. This needs a network connection and depends on that source remaining available. Normal / pitch-preserving 0.75× speed, stop, source link and failure message are available. The original video links remain the reference for blending. One player prevents overlapping initial/final playback; playing a flashcard, changing cards, closing the sound panel or hiding the tab stops it.
+
+The source book says it is free to use to learn or teach Cantonese. This app links to the original audio rather than redistributing copies. Source: https://opencantonese.org/books/cantonese-life-1/pronunciation-guide/jyutping-chart ; book-use statement: https://opencantonese.org/books/cantonese-life-1 . Source speech has not been independently phonetically reviewed here. Browser tests cover playback on desktop Chrome and an emulated phone, not native iPhone Safari.
+
 ## Read-aloud audio
 
 Audio uses `zh-HK-HiuGaaiNeural` through `edge-tts==7.2.8`, generated from public card text only. It is synthetic read-aloud speech, **not the video teacher's recordings, not phonetic gold-standard audio, and not human-reviewed for every polyphonic character**. Use the displayed Jyutping/course as the reference if the synthesized reading differs. Listening counts as assisted recall and never exposes the written spelling automatically.

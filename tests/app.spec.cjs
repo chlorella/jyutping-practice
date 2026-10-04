@@ -1,5 +1,34 @@
 const { test, expect } = require('@playwright/test');
-test('personal flashcards create, flip, edit, practise, persist and delete safely',async({page})=>{
+test('sound library plays separate initial and final clips only on tap',async({page})=>{
+  const requests=[];page.on('request',r=>requests.push(r.url()));
+  await page.goto('./');
+  expect(requests.filter(u=>u.includes('opencantonese.org'))).toEqual([]);
+  await page.locator('#sounds-panel > summary').click();
+  await expect(page.locator('#initial-sounds button')).toHaveCount(19);
+  await page.getByRole('button',{name:'聽聲母 b',exact:true}).click();
+  const player=page.locator('#sound-player');
+  await expect(player).toHaveAttribute('src',/initial-01-b.mp3$/);
+  await expect.poll(()=>player.evaluate(e=>e.readyState)).toBeGreaterThanOrEqual(2);
+  await expect.poll(()=>player.evaluate(e=>e.paused)).toBe(false);
+  await page.getByRole('button',{name:'聽韻母 aa',exact:true}).click();
+  await expect(player).toHaveAttribute('src',/final-01-aa.mp3$/);
+  await expect.poll(()=>player.evaluate(e=>e.readyState)).toBeGreaterThanOrEqual(2);
+  await expect.poll(()=>player.evaluate(e=>e.paused)).toBe(false);
+  await page.locator('#sound-slow').check();
+  expect(await player.evaluate(e=>e.playbackRate)).toBe(0.75);
+  await page.locator('#sound-stop').click();expect(await player.evaluate(e=>e.paused)).toBe(true);
+  await expect(page.locator('#sound-source')).toHaveAttribute('href',/^https:\/\/opencantonese.org\/books\//);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+test('sound loading failure is recoverable and does not block flashcards',async({page})=>{
+ await page.route('https://opencantonese.org/files/**/*.mp3',route=>route.abort());
+ await page.goto('./');await page.locator('#sounds-panel > summary').click();
+ await page.getByRole('button',{name:'聽聲母 ng',exact:true}).click();
+ await expect(page.locator('#sound-status')).toContainText(/播唔到|未能載入/);
+ await page.locator('#answer').fill('夏天');await page.locator('#check').click();
+ await expect(page.locator('#feedback')).toContainText('啱');
+});
+test('personal flashcards create, flip, edit, practise, persist and delete safely' ,async({page})=>{
   await page.goto('./');
   await page.getByText('自訂 Flashcards',{exact:true}).click();
   await page.locator('#custom-text').fill('地衣');

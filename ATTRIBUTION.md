@@ -35,6 +35,15 @@ The `audio/` clips are generated from the card text using Microsoft's Hong Kong 
 Voice reference: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts
 Generation tool: https://github.com/rany2/edge-tts
 
+## Initial / final demonstration audio
+
+Open Cantonese, *Cantonese Life 1*, pronunciation guide / Jyutping chart:
+https://opencantonese.org/books/cantonese-life-1/pronunciation-guide/jyutping-chart
+
+The chart provides separately named `initial-*.mp3` and `final-*.mp3` samples, mapped in `sounds.js`. The book's public-use statement says it may be used to learn or teach Cantonese: https://opencantonese.org/books/cantonese-life-1 . No broader redistribution license is assumed. The app links directly to the original source files, fetched only after a playback tap; copies of these recordings are **not** committed or hosted in this repository. They are not MIT/CC-relicensed by this app and are not the TypeDuck video's teacher recordings. There is no affiliation or endorsement.
+
+The UI groups the samples for navigation and labels `eo` as a nucleus; initial demonstrations may include a supporting vowel. Audio filenames, decoding/duration and browser playback were checked, not an independent phonetic accuracy review. This network-dependent feature sends a request for the selected public sound asset only, not the learner's card text, answers or review records.
+
 ## Application code
 
 Original application code is MIT licensed; see `LICENSE`. Source data retains its separate license above.

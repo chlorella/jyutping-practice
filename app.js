@@ -27,6 +27,7 @@
   }
   function render() {
     if(window.speechSynthesis) speechSynthesis.cancel();
+    stopSound();
     $('pronunciation').pause(); $('pronunciation').removeAttribute('src'); $('pronunciation').load(); $('audio-status').textContent = '';
     current = queue[0] || null; assisted = false; recorded = false; hintLevel = 0; composing = false;
     $('solution').hidden = true; $('solution').replaceChildren(); $('feedback').textContent = ''; $('feedback').dataset.result = '';
@@ -80,6 +81,7 @@
   function playAudio(rate) {
     if(!current) return;
     assisted = true;
+    stopSound();
     if(current.lesson==='custom') {
       const synth=window.speechSynthesis;
       const voice=synth && synth.getVoices().find(v=>v.localService && /^(zh[-_]HK|yue([-_].*)?)$/i.test(v.lang));
@@ -173,5 +175,40 @@
     const a=document.createElement('a');a.href=url;a.download='my-jyutping-flashcards.tsv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
     $('custom-status').textContent='已準備 '+(state.custom||[]).length+' 張卡下載（中文字／粵拼／備註）。';
   };
+  const soundPlayer=$('sound-player');
+  let soundToken=0;
+  function stopSound(){
+    soundToken++;soundPlayer.pause();
+    for(const button of document.querySelectorAll('[data-sound]'))button.setAttribute('aria-pressed','false');
+  }
+  function playSound(kind,symbol,button){
+    stopSound();$('pronunciation').pause();if(window.speechSynthesis)speechSynthesis.cancel();
+    const token=soundToken, item=JP_SOUNDS[kind][symbol];
+    if(!item)return;
+    button.setAttribute('aria-pressed','true');
+    soundPlayer.src=item.url;soundPlayer.playbackRate=$('sound-slow').checked ? 0.75 : 1;soundPlayer.preservesPitch=true;
+    const title=(kind==='initials' ? '聲母 ' : '韻母／韻腹 ')+symbol;
+    $('sound-status').textContent='播放 '+title+'…';
+    const pending=soundPlayer.play();
+    if(pending)pending.catch(error=>{if(token===soundToken && error.name!=='AbortError'){$('sound-status').textContent='暫時播唔到 '+title+'；請檢查網絡／音量，或開下面音源連結再聽。';button.setAttribute('aria-pressed','false');}});
+  }
+  function soundButton(kind,symbol){
+    const button=document.createElement('button');button.type='button';button.textContent=symbol+' 🔊';button.dataset.sound=kind+'-'+symbol;
+    button.setAttribute('aria-label',(kind==='initials'?'聽聲母 ':'聽韻母 ')+symbol);button.setAttribute('aria-pressed','false');
+    button.onclick=()=>playSound(kind,symbol,button);return button;
+  }
+  for(const [symbol,item] of Object.entries(JP_SOUNDS.initials).sort((a,b)=>a[1].order-b[1].order))$('initial-sounds').append(soundButton('initials',symbol));
+  for(const group of JP_SOUNDS.groups){
+    const heading=document.createElement('h4');heading.textContent=group.title;$('final-sounds').append(heading);
+    if(group.note){const note=document.createElement('p');note.textContent=group.note;$('final-sounds').append(note);}
+    const grid=document.createElement('div');grid.className='sound-grid';
+    for(const symbol of group.symbols)grid.append(soundButton('finals',symbol));$('final-sounds').append(grid);
+  }
+  $('sound-stop').onclick=()=>{stopSound();$('sound-status').textContent='已停止播放。';};
+  $('sound-slow').onchange=()=>{soundPlayer.playbackRate=$('sound-slow').checked?0.75:1;};
+  soundPlayer.addEventListener('ended',()=>{stopSound();$('sound-status').textContent='播完喇，可以再撳一次。';});
+  soundPlayer.addEventListener('error',()=>{stopSound();$('sound-status').textContent='音源未能載入；請檢查網絡，或開音源連結再聽。';});
+  $('sounds-panel').addEventListener('toggle',()=>{if(!$('sounds-panel').open)stopSound();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopSound();});
   customList();settings();start();
 })();
